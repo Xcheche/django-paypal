@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Purchase{% endblock %}
+{% block content %}
+
+<div class="container py-5">
+    <h1 class="text-center mb-4">Available Products</h1>
+
+    <div class="row g-4">
+        {% for product in products %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow-sm border-0">
+                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{ product.name }}</h5>
+                        <p class="text-muted text-center">{{ product.category }}</p>
+
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>Availability:</strong> {{ product.availability }}</li>
+                            <li class="list-group-item"><strong>Price:</strong> ${{ product.price }}</li>
+                            <li class="list-group-item"><strong>Quantity:</strong> {{ product.quantity }}</li>
+                        </ul>
+
+                        <p class="mt-3">{{ product.description|truncatewords:20 }}</p>
+
+                        <div class="d-grid">
+                            <a href="#" class="btn btn-outline-dark">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <div class="col-12 text-center">
+                <p class="fs-4">No products found.</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
