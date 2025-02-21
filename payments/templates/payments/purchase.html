@@ -14,16 +14,16 @@
                         <h5 class="card-title text-center">{{ product.name }}</h5>
                         <p class="text-muted text-center">{{ product.category }}</p>
 
-                        <ul class="list-group list-group-flush">
+                        <!-- <ul class="list-group list-group-flush">
                             <li class="list-group-item"><strong>Availability:</strong> {{ product.availability }}</li>
                             <li class="list-group-item"><strong>Price:</strong> ${{ product.price }}</li>
                             <li class="list-group-item"><strong>Quantity:</strong> {{ product.quantity }}</li>
-                        </ul>
+                        </ul> -->
 
-                        <p class="mt-3">{{ product.description|truncatewords:20 }}</p>
+                        <!-- <p class="mt-3">{{ product.description|truncatewords:20 }}</p> -->
 
                         <div class="d-grid">
-                            <a href="#" class="btn btn-outline-dark">View Details</a>
+                            <a href="{% url 'detail' product.id %}" class="btn btn-outline-dark">View Details</a>
                         </div>
                     </div>
                 </div>

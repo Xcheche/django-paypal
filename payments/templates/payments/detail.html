@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block content %}
+<div class="product-detail">
+  <h1>{{ product.name }}</h1>
+  <img src="{{ product.image.url }}" alt="{{ product.name }}" />
+  <p><strong>Price:</strong> ${{ product.price }}</p>
+  <p><strong>Availability:</strong> {{ product.availability }}</p>
+  <p><strong>Quantity:</strong> {{ product.quantity }}</p>
+  <p><strong>Category:</strong> {{ product.category.name }}</p>
+  <p><strong>Description:</strong> {{ product.description }}</p>
+</div>
+
+<!-- <form method="post" action="https://www.sandbox.paypal.com/cgi-bin/webscr" target="_blank"> -->
+<form method="post" action="https://www.sandbox.paypal.com/cgi-bin/webscr" target="_blank">
+  {% csrf_token %}
+  {{ paypal_form.render }}
+  <input type="image" name="submit" border="0"
+         src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
+         alt="PayPal - The safer, easier way to pay online">
+</form>
+
+
+{% endblock %}
